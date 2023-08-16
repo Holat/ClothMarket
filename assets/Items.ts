@@ -95,5 +95,6 @@ const listData: ItemType[] = [
 ];
 
 const Sleeves = ["Short Sleeve [402]", "Long Sleeve [307]", "Sleeveless [24]"];
+const SIZES = ["XS", "S", "M", "L", "XL", "XXL", "3XL"];
 
-export { Categories, Sports, Sleeves, Colors, listData, collections };
+export { Categories, Sports, Sleeves, Colors, listData, collections, SIZES };
