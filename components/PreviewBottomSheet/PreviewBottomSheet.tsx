@@ -15,7 +15,7 @@ const PreviewBottomSheet = () => {
   return (
     <BottomSheet
       detached={true}
-      snapPoints={[64, 500]}
+      snapPoints={[70, 440]}
       index={1}
       style={styles.bottomSheet}
       bottomInset={insets.bottom + 10}
@@ -45,3 +45,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
+// Amen amen blessing and glory with thank giving
