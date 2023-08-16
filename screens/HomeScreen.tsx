@@ -3,6 +3,7 @@ import React, { useState, useRef, useCallback } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import MasonryList from "reanimated-masonry-list";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
 import {
   FlatListItem,
@@ -26,6 +27,7 @@ const HomeScreen = () => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <SafeAreaView style={{ paddingVertical: 24, gap: 24 }}>
+        <StatusBar style="dark" />
         {/* header */}
         <Header handlePresentModal={handlePresentModalPress} />
         {/* Collections */}

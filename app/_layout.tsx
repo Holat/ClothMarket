@@ -72,7 +72,6 @@ function RootLayoutNav() {
               name="details/[id]"
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="modal" options={{ headerShown: false }} />
           </Stack>
         </BottomSheetModalProvider>
       </ThemeProvider>
