@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { FlatLIstProp } from "../types/types";
 
@@ -15,7 +15,7 @@ const FlatListItem = ({
       onPress={() => setCategoryIndex(index)}
       style={{
         backgroundColor: isSelected ? colors.primary : colors.card,
-        paddingHorizontal: 24,
+        paddingHorizontal: 20,
         paddingVertical: 12,
         borderRadius: 100,
         borderWidth: isSelected ? 0 : 1,
@@ -28,7 +28,7 @@ const FlatListItem = ({
         style={{
           color: isSelected ? colors.background : colors.text,
           fontWeight: "600",
-          fontSize: 16,
+          fontSize: 14,
           opacity: isSelected ? 1 : 0.5,
         }}
       >

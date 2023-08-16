@@ -23,6 +23,9 @@ const PreviewBottomSheet = () => {
         borderRadius: 24,
         backgroundColor: colors.background,
       }}
+      handleIndicatorStyle={{
+        backgroundColor: colors.primary,
+      }}
     >
       <View style={{ padding: 16, gap: 16, flex: 1 }}>
         <Text style={{ fontSize: 20, fontWeight: "600", color: colors.text }}>
@@ -45,4 +48,3 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
-// Amen amen blessing and glory with thank giving

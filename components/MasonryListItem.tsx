@@ -1,12 +1,21 @@
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
+import { useColorScheme } from "react-native";
 import { MasonryListProp } from "../types/types";
 
 const MasonryListItem = ({ item, i }: MasonryListProp) => {
   const { colors } = useTheme();
+  const colorScheme = useColorScheme() === "dark";
   return (
     <View style={{ padding: 6 }}>
       <View
@@ -22,12 +31,12 @@ const MasonryListItem = ({ item, i }: MasonryListProp) => {
           resizeMode="cover"
           style={StyleSheet.absoluteFill}
         />
-        <View style={[StyleSheet.absoluteFill, { padding: 12 }]}>
+        <View style={[StyleSheet.absoluteFill, { padding: 7 }]}>
           <View style={{ flexDirection: "row", padding: 4, gap: 10 }}>
             <Text
               style={[
                 styles.txt1,
-                { color: colors.text, flex: 1, flexWrap: "wrap", fontSize: 16 },
+                { color: "#fff", flex: 1, flexWrap: "wrap", fontSize: 16 },
               ]}
             >
               {item.title}
@@ -47,15 +56,21 @@ const MasonryListItem = ({ item, i }: MasonryListProp) => {
             </View>
           </View>
           <View style={{ flex: 1 }}></View>
-          <BlurView intensity={25} tint="light" style={[styles.blurView]}>
-            <Text style={[styles.txt2]} numberOfLines={1}>
+          <BlurView
+            intensity={Platform.OS === "android" ? 0 : 30}
+            tint={colorScheme ? "dark" : "light"}
+            style={[styles.blurView]}
+          >
+            <Text style={[styles.txt2, { color: "#fff" }]} numberOfLines={1}>
               ${item.price}.00
             </Text>
-            <TouchableOpacity style={[styles.btn2]}>
+            <TouchableOpacity
+              style={[styles.btn2, { backgroundColor: colors.card }]}
+            >
               <MaterialIcons
                 name="add-shopping-cart"
-                size={20}
-                color={"#000"}
+                size={18}
+                color={colors.text}
               />
             </TouchableOpacity>
           </BlurView>
@@ -77,6 +92,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 20,
     fontWeight: "700",
+    textShadowColor: "rgba(0,0,0,0.4)",
+    textShadowOffset: {
+      height: 1,
+      width: 0,
+    },
+    textShadowRadius: 3,
   },
   itemHeader: {
     borderRadius: 100,
@@ -89,19 +110,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    padding: 8,
+    padding: 6,
     borderRadius: 100,
     overflow: "hidden",
+    backgroundColor: "rgba(0,0,0,0.3)",
   },
   txt2: {
     flex: 1,
     fontSize: 14,
     fontWeight: "600",
     color: "#fff",
-    marginLeft: 4,
+    marginLeft: 8,
   },
   btn2: {
-    paddingVertical: 5,
+    paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 50,
     backgroundColor: "#fff",

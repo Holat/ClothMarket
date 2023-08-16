@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, ReactNode } from "react";
 
 type ItemType = {
   id: string;
@@ -26,4 +26,26 @@ type FlatLIstProp = {
   setCategoryIndex: Dispatch<SetStateAction<number>>;
 };
 
-export { MasonryListProp, ItemType, CardProp, FlatLIstProp };
+type PriceRangeSelectorProp = {
+  minPrice?: number;
+  maxPrice: number;
+  startPrice: number;
+  endPrice: number;
+  onStartPriceChange: (value: number) => void;
+  onEndPriceChange: (value: number) => void;
+};
+
+type ChipProp = {
+  isSelected: boolean;
+  label: string;
+  left?: ReactNode;
+};
+
+export {
+  MasonryListProp,
+  ItemType,
+  CardProp,
+  FlatLIstProp,
+  PriceRangeSelectorProp,
+  ChipProp,
+};

@@ -8,6 +8,7 @@ import { AntDesign } from "@expo/vector-icons";
 const Button = () => {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
   return (
     <View style={{ padding: 24, paddingBottom: 24 + insets.bottom }}>
       <View style={[styles.btn, { backgroundColor: theme.colors.primary }]}>
@@ -17,7 +18,7 @@ const Button = () => {
         <TouchableOpacity
           style={[styles.arrow, { backgroundColor: theme.colors.card }]}
         >
-          <AntDesign name="arrowright" size={24} color="black" />
+          <AntDesign name="arrowright" size={24} color={colors.text} />
         </TouchableOpacity>
       </View>
     </View>

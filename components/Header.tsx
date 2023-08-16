@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useRouter, Link } from "expo-router";
+import { useRouter } from "expo-router";
 
 interface HeaderProp {
   handlePresentModal: () => void;
@@ -13,7 +13,6 @@ const AVA_URL =
 
 const Header = ({ handlePresentModal }: HeaderProp) => {
   const { colors } = useTheme();
-  const router = useRouter();
   return (
     <>
       {/* Header Section */}
@@ -54,7 +53,7 @@ const Header = ({ handlePresentModal }: HeaderProp) => {
           <Ionicons
             name="search"
             size={20}
-            color="black"
+            color={colors.text}
             style={{ opacity: 0.5 }}
           />
           <Text

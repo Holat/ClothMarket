@@ -10,7 +10,9 @@ const Sizes = () => {
   const [size, setSize] = useState(SIZES[0]);
   return (
     <View style={{ marginTop: 10 }}>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <View
+        style={{ flexDirection: "row", alignItems: "center", marginBottom: 5 }}
+      >
         <Text style={[styles.header, { color: colors.text }]}>
           Modal is 6'1'', Size M
         </Text>
@@ -31,7 +33,10 @@ const Sizes = () => {
             ]}
           >
             <Text
-              style={[styles.txt, { color: s === size ? "#fff" : colors.text }]}
+              style={[
+                styles.txt,
+                { color: s === size ? colors.card : colors.text },
+              ]}
             >
               {s}
             </Text>

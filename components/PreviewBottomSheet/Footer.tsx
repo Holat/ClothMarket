@@ -23,7 +23,7 @@ const Footer = () => {
           <TouchableOpacity
             style={[styles.arrow, { backgroundColor: colors.card }]}
           >
-            <AntDesign name="arrowright" size={24} color="black" />
+            <AntDesign name="arrowright" size={24} color={colors.text} />
           </TouchableOpacity>
         </View>
       </TouchableOpacity>

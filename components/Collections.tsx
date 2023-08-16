@@ -1,16 +1,20 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
+import { useTheme } from "@react-navigation/native";
 
 import Card from "./Card";
 import { collections } from "../assets/Items";
 
 const Collections = () => {
+  const { colors } = useTheme();
   return (
     <View style={{ paddingHorizontal: 24 }}>
       <View style={[styles.header]}>
-        <Text style={{ fontSize: 20, fontWeight: "700" }}>New Collections</Text>
+        <Text style={{ fontSize: 20, fontWeight: "700", color: colors.text }}>
+          New Collections
+        </Text>
         <TouchableOpacity>
-          <Text>See all</Text>
+          <Text style={{ color: colors.primary }}>See all</Text>
         </TouchableOpacity>
       </View>
       <View style={{ flexDirection: "row", gap: 12, height: 200 }}>

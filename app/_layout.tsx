@@ -4,12 +4,14 @@ import {
   Theme,
   DefaultTheme,
   ThemeProvider,
-  NavigatorScreenParams,
+  DarkTheme,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { SplashScreen, Stack, LinkProps } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import { useEffect, useMemo } from "react";
+import { useColorScheme } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -49,18 +51,29 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const colorScheme = useColorScheme();
+
   const theme: Theme = useMemo(
-    () => ({
-      ...DefaultTheme,
-      colors: {
-        ...DefaultTheme.colors,
-        background: "#f5f5f5",
-        text: "#191919",
-        border: "#D9D9D9",
-        primary: "#191919",
-      },
-    }),
-    []
+    () =>
+      colorScheme === "dark"
+        ? {
+            ...DarkTheme,
+            colors: {
+              ...DarkTheme.colors,
+              primary: "#fff",
+            },
+          }
+        : {
+            ...DefaultTheme,
+            colors: {
+              ...DefaultTheme.colors,
+              background: "#f5f5f5",
+              text: "#191919",
+              border: "#D9D9D9",
+              primary: "#191919",
+            },
+          },
+    [colorScheme]
   );
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -74,6 +87,7 @@ function RootLayoutNav() {
             />
           </Stack>
         </BottomSheetModalProvider>
+        <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       </ThemeProvider>
     </GestureHandlerRootView>
   );

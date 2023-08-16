@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
   },
   priceTag: {
     position: "absolute",
-    left: 16,
-    top: 16,
+    left: 12,
+    top: 12,
+    paddingHorizontal: 12,
     paddingVertical: 8,
-    paddingHorizontal: 16,
     backgroundColor: "rgba(0,0,0,0.25)",
     borderRadius: 50,
   },

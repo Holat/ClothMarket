@@ -3,8 +3,10 @@ import React from "react";
 
 import Chip from "./Chip";
 import { Colors, Sports, Sleeves } from "../../assets/Items";
+import { useTheme } from "@react-navigation/native";
 
 const FilteredItems = ({ title }: { title: string }) => {
+  const { colors } = useTheme();
   const Items = () => {
     switch (title) {
       case "sports":
@@ -20,7 +22,7 @@ const FilteredItems = ({ title }: { title: string }) => {
 
   return (
     <View style={{ paddingHorizontal: 24 }}>
-      <Text style={styles.header}>{title}</Text>
+      <Text style={[styles.header, { color: colors.text }]}>{title}</Text>
       <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
         {Items().map((item, i) => {
           return (

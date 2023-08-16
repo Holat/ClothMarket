@@ -51,12 +51,3 @@ const CustomBackdrop = ({ animatedIndex, style }: BottomSheetBackdropProps) => {
 };
 
 export default CustomBackdrop;
-
-/**
- *     const containerAnimatedStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(
-      animatedIndex.value,
-      [-1, 0],
-      [0, 0.5],
-      Extrapolate.CLAMP)
- */

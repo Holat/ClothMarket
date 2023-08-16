@@ -1,12 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { ReactNode } from "react";
+import React from "react";
 import { useTheme } from "@react-navigation/native";
-
-interface ChipProp {
-  isSelected: boolean;
-  label: string;
-  left?: ReactNode;
-}
+import { ChipProp } from "../../types/types";
 
 const Chip = ({ isSelected, label, left }: ChipProp) => {
   const theme = useTheme();

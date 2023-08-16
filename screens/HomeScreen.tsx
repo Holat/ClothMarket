@@ -3,7 +3,6 @@ import React, { useState, useRef, useCallback } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import MasonryList from "reanimated-masonry-list";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
 
 import {
   FlatListItem,
@@ -15,10 +14,12 @@ import {
 } from "../components";
 import { Categories, listData } from "../assets/Items";
 import { MasonryListProp } from "../types/types";
+import { useTheme } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const [categoryIndex, setCategoryIndex] = useState(0);
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const { colors } = useTheme();
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -27,7 +28,6 @@ const HomeScreen = () => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <SafeAreaView style={{ paddingVertical: 24, gap: 24 }}>
-        <StatusBar style="dark" />
         {/* header */}
         <Header handlePresentModal={handlePresentModalPress} />
         {/* Collections */}
@@ -75,7 +75,13 @@ const HomeScreen = () => {
         index={0}
         snapPoints={["80%"]}
         backdropComponent={(props) => <CustomBackdrop {...props} />}
-        // onChange={(index) => handleSheetChanges}
+        backgroundStyle={{
+          borderRadius: 24,
+          backgroundColor: colors.card,
+        }}
+        handleIndicatorStyle={{
+          backgroundColor: colors.primary,
+        }}
       >
         <FilteredView />
       </BottomSheetModal>
