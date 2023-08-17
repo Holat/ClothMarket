@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollViewProps,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from "react-native";
 import React, { useState } from "react";
 import { useTheme } from "@react-navigation/native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -14,6 +22,7 @@ const FilteredView = () => {
   const [endPrice, setEndPrice] = useState(250);
 
   const { colors } = useTheme();
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>

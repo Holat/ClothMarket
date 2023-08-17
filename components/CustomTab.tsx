@@ -26,6 +26,7 @@ const CustomTab = (props: BottomTabBarProps) => {
                   {
                     backgroundColor: isActive ? colors.primary : "transparent",
                     paddingRight: isActive ? 5 : 0,
+                    paddingBottom: isActive ? 2 : 0,
                   },
                 ]}
               >
